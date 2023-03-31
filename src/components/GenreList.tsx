@@ -11,6 +11,7 @@ const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
   const { data, isLoading, error } = useGenres();
 
   if (error) return null;
+  
   if (isLoading) return <Spinner />;
 
   return (
@@ -21,7 +22,7 @@ const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
           <HStack>
             <Image boxSize="32px" borderRadius={8} objectFit='cover' src={getCroppedImageUrl(genre.image_background)} />
             <Button whiteSpace='normal' textAlign='left' fontWeight={genre.id === selectedGenre?.id ? 'bold' : 'normal'} onClick={() => onSelectGenre(genre)} variant='link' fontSize='lg'>{genre.name}</Button>
-          </HStack>
+          </HStack> 
         </ListItem>)}
       </List>
     </>
